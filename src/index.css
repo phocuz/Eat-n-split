@@ -24,6 +24,7 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
+  flex-wrap: wrap;
 }
 
 .app {
@@ -171,4 +172,18 @@ form h2 {
   letter-spacing: -0.5px;
   margin-bottom: 1.6rem;
   text-wrap: nowrap;
+}
+
+@media screen and (max-width: 760px) {
+  .app {
+    min-height: 66vh;
+    display: flex;
+    flex-direction: column;
+    column-gap: 4rem;
+    align-items: start;
+
+}
+.form-split-bill{
+  margin-top: 20px;
+}
 }

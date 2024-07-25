@@ -65,7 +65,10 @@ function App() {
        { addFriend &&<FormAddFriend onAddFriend={handleAddFriends} />}
         <Button onClick={handleAddFriend}>{ addFriend? "close": "Add friend"}</Button>
       </div>
-  {selectedFriends && <FormSplitBill onSplitBill={handleSplitBill} selectedFriends={selectedFriends} />}
+  {selectedFriends && 
+  <FormSplitBill onSplitBill={handleSplitBill} 
+  selectedFriends={selectedFriends} 
+  key={selectedFriends.id}/>}
     </div>
   )
 }
@@ -74,7 +77,7 @@ function FriendList({friends, onSelection,selectedFriends}){
   
   return(
     <ul>
-      {friends.map((friend)=> <Friend friend={friend} selectedFriends={selectedFriends} onSelection={onSelection}/>)}
+      {friends.map((friend)=> <Friend friend={friend} selectedFriends={selectedFriends} onSelection={onSelection} key={friend.id}/>)}
     </ul>
   )
 }
@@ -83,7 +86,7 @@ function Friend({friend,onSelection,selectedFriends}){
 
   const isSelected = selectedFriends?.id===friend.id;
 
-  console.log(selectedFriends,friend);
+ 
 const{image,name,balance}=friend;
 return(
     <li className={isSelected? "selected": ""}>
